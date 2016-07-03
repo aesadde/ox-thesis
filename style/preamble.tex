@@ -7,7 +7,8 @@
 \usepackage{epstopdf}
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{color}
-\usepackage{caption}
+% Set figure legends and captions to be smaller sized sans serif font
+\usepackage[font={footnotesize,sf}]{caption}
 \usepackage{float}
 \usepackage[nameinlink]{cleveref}
 \usepackage{caption}
@@ -59,3 +60,14 @@
 \usepackage{morefloats}
 % or use \extrafloats{100}
 % add some \clearpage
+
+% FONTS
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\defaultfontfeatures{Mapping=tex-text} % converts LaTeX specials (``quotes'' --- dashes etc.) to unicode
+% \setromanfont[Scale=1.01,Ligatures={Common},Numbers={OldStyle}]{Palatino}
+% \setromanfont[Scale=1.01,Ligatures={Common},Numbers={OldStyle}]{Adobe Caslon Pro}
+%Following line controls size of code chunks
+% \setmonofont[Scale=0.9]{Monaco}
+%Following line controls size of figure legends
+% \setsansfont[Scale=1.2]{Optima Regular}

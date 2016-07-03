@@ -30,8 +30,10 @@ pdf:
 	--template="$(STYLEDIR)/template.tex" \
 	-H "$(STYLEDIR)/preamble.tex" \
 	--csl="$(STYLEDIR)/acm-sig-proceedings.csl" \
+	--metadata link-as-notes \
 	--bibliography="$(BIBFILE)" 2>"$(OUTPUTDIR)"/pandoc.log \
 	-V papersize=a4 \
+	-V links-as-notes=true \
 	-V documentclass:"$(STYLEDIR)/ociamthesis" \
 	--metadata link-citations \
 	-V fontsize=11pt \
@@ -45,17 +47,31 @@ tex:
 	-o "$(OUTPUTDIR)/thesis.tex" \
   --template="$(STYLEDIR)/template.tex" \
 	-H "$(STYLEDIR)/preamble.tex" \
-	--natbib --bibliography="$(BIBFILE)" \
-	--chapters \
-	-V fontsize=11pt \
-	-V papersize=a4paper \
+	--csl="$(STYLEDIR)/acm-sig-proceedings.csl" \
+	--metadata link-as-notes \
+	--bibliography="$(BIBFILE)" 2>"$(OUTPUTDIR)"/pandoc.log \
+	-V papersize=a4 \
+	-V links-as-notes=true \
 	-V documentclass:"$(STYLEDIR)/ociamthesis" \
+	--metadata link-citations \
+	-V fontsize=11pt \
+	--chapters \
 	-N
 
 docx:
 	pandoc "$(INPUTDIR)"/*.md \
 	-o "$(OUTPUTDIR)/thesis.docx" \
-	--natbib --bibliography="$(BIBFILE)" \
+  --template="$(STYLEDIR)/template.tex" \
+	-H "$(STYLEDIR)/preamble.tex" \
+	--csl="$(STYLEDIR)/acm-sig-proceedings.csl" \
+	--metadata link-as-notes \
+	--bibliography="$(BIBFILE)" 2>"$(OUTPUTDIR)"/pandoc.log \
+	-V papersize=a4 \
+	-V links-as-notes=true \
+	-V documentclass:"$(STYLEDIR)/ociamthesis" \
+	--metadata link-citations \
+	-V fontsize=11pt \
+	--chapters \
 	--toc
 
 html:
@@ -63,7 +79,8 @@ html:
 	-o "$(OUTPUTDIR)/thesis.html" \
 	--standalone \
 	--template="$(STYLEDIR)/template.html" \
-	--natbib --bibliography="$(BIBFILE)" \
+	--bibliography="$(BIBFILE)" 2>"$(OUTPUTDIR)"/pandoc.log \
+	--csl="$(STYLEDIR)/acm-sig-proceedings.csl" \
 	--include-in-header="$(STYLEDIR)/style.css" \
 	--toc \
 	--number-sections
