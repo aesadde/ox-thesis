@@ -1,0 +1,61 @@
+% Packages used
+
+% \usepackage[final]{listings}
+\usepackage{fancyvrb}
+\usepackage{framed}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{color}
+\usepackage{caption}
+\usepackage{float}
+\usepackage[nameinlink]{cleveref}
+\usepackage{caption}
+\usepackage[titletoc]{appendix}
+\usepackage{pdfpages} % incluce pdf files
+\usepackage{csvsimple} % csv to tables figure
+
+\makeatother
+% \renewcommand*{\lstlistingname}{Figure}
+\crefname{listing}{Figure}{Figures}
+\Crefname{listing}{Figure}{Figures}
+\crefname{chapter}{Chapter}{Chapters}
+\Crefname{chapter}{Chapter}{Chapters}
+\crefname{section}{Section}{Sections}
+\Crefname{section}{Section}{Sections}
+\crefname{subsection}{Section}{Sections}
+\Crefname{subsection}{Section}{Sections}
+\crefname{subsubsection}{Section}{Sections}
+\Crefname{subsubsection}{Section}{Sections}
+\crefname{figure}{Figure}{Figures} % changes default behavior to Figure. 1
+\Crefname{figure}{Figure}{Figures} % changes default behavior to Figure. 1
+\crefname{table}{Table}{Tables}
+\Crefname{table}{Table}{Tables}
+\crefname{subfigure}{Figure}{Figures}
+\Crefname{subfigure}{Figure}{Figures}
+\crefname{subsubfigure}{Figure}{Figures}
+\Crefname{subsubfigure}{Figure}{Figures}
+\crefname{appendix}{Appendix}{Appendices}
+\Crefname{appendix}{Appendix}{Appendices}
+%input macros (i.e. write your own macros file called mymacros.tex
+%and uncomment the next line)
+%\include{mymacros}
+
+\title{Consolidation of Haskell Programs}   %note \\[1ex] is a line break in the title
+
+\author{Your name goes here}      %your name
+\college{Your College}  %your college
+\supervisor{Your Supervisor}
+
+\renewcommand{\submittedtext}{Submitted in partial completion of the}
+\degree{Your Degree}     %the degree
+\degreedate{Oxford term (Michealmas,Hilary,Trinity) and year}         %the degree date
+
+% Table of contents formatting
+\renewcommand{\contentsname}{Table of Contents}
+\setcounter{tocdepth}{3}
+
+% Deal with 'LaTeX Error: Too many unprocessed floats.'
+\usepackage{morefloats}
+% or use \extrafloats{100}
+% add some \clearpage
