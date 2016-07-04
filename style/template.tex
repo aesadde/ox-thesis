@@ -67,7 +67,13 @@ $endif$
 xetex]{hyperref}
 \else
   \usepackage[unicode=true]{hyperref}
+
 \fi
+% Make sure url breaks
+\usepackage{url}
+\makeatletter
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+\makeatother
 \hypersetup{breaklinks=true,
             bookmarks=true,
             pdfauthor={$author-meta$},
@@ -105,6 +111,15 @@ $endfor$
 $endif$
 $if(listings)$
 \usepackage{listings}
+\makeatletter
+\AtBeginDocument{%
+  \let\c@figure\c@lstlisting
+  % \let\c@table\c@lstlisting
+  % \let\thetable\thelstlisting
+  \let\thefigure\thelstlisting
+  \let\ftype@lstlisting\ftype@figure % give the floats the same precedence
+  % \let\ftype@lstlisting\ftype@table% give the floats the same precedence
+
 \renewcommand*{\lstlistingname}{Figure}
 \lstset{%
   frame=none,

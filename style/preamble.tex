@@ -1,6 +1,7 @@
-% Packages used
-
-% \usepackage[final]{listings}
+% Only edit the things you need in the [OPTIONS] section
+% -----------------------------------------------------------------------------
+% -- Packages used ------------------------------------------------------------
+% -----------------------------------------------------------------------------
 \usepackage{fancyvrb}
 \usepackage{framed}
 \usepackage{graphicx}
@@ -15,9 +16,12 @@
 \usepackage[titletoc]{appendix}
 \usepackage{pdfpages} % incluce pdf files
 \usepackage{csvsimple} % csv to tables figure
+\usepackage{inconsolata} % nicer typewriter-style fonts
+\usepackage[scaled=.9]{helvet} % nice san serif fonts
+\usepackage{url}
 
+% better names when cross-referencing with cleveref
 \makeatother
-% \renewcommand*{\lstlistingname}{Figure}
 \crefname{listing}{Figure}{Figures}
 \Crefname{listing}{Figure}{Figures}
 \crefname{chapter}{Chapter}{Chapters}
@@ -38,36 +42,44 @@
 \Crefname{subsubfigure}{Figure}{Figures}
 \crefname{appendix}{Appendix}{Appendices}
 \Crefname{appendix}{Appendix}{Appendices}
-%input macros (i.e. write your own macros file called mymacros.tex
-%and uncomment the next line)
-%\include{mymacros}
-
-\title{Consolidation of Haskell Programs}   %note \\[1ex] is a line break in the title
-
-\author{Your name goes here}      %your name
-\college{Your College}  %your college
-\supervisor{Your Supervisor}
-
-\renewcommand{\submittedtext}{Submitted in partial completion of the}
-\degree{Your Degree}     %the degree
-\degreedate{Oxford term (Michealmas,Hilary,Trinity) and year}         %the degree date
-
-% Table of contents formatting
-\renewcommand{\contentsname}{Table of Contents}
-\setcounter{tocdepth}{3}
 
 % Deal with 'LaTeX Error: Too many unprocessed floats.'
 \usepackage{morefloats}
 % or use \extrafloats{100}
 % add some \clearpage
 
-% FONTS
+% Table of contents formatting
+\renewcommand{\contentsname}{Table of Contents}
+\setcounter{tocdepth}{3}
+
+% -----------------------------------------------------------------------------
+% -- FONTS---------------------------------------------------------------------
+% -----------------------------------------------------------------------------
 \usepackage{xunicode}
 \usepackage{xltxtra}
 \defaultfontfeatures{Mapping=tex-text} % converts LaTeX specials (``quotes'' --- dashes etc.) to unicode
 % \setromanfont[Scale=1.01,Ligatures={Common},Numbers={OldStyle}]{Palatino}
 % \setromanfont[Scale=1.01,Ligatures={Common},Numbers={OldStyle}]{Adobe Caslon Pro}
 %Following line controls size of code chunks
-% \setmonofont[Scale=0.9]{Monaco}
+\setmonofont[Scale=0.9]{Monaco}
 %Following line controls size of figure legends
-% \setsansfont[Scale=1.2]{Optima Regular}
+\setsansfont[Scale=1.2]{Optima Regular}
+
+% -----------------------------------------------------------------------------
+% -- OPTIONS ------------------------------------------------------------------
+% -----------------------------------------------------------------------------
+% change the below options as you need
+
+%input macros (i.e. write your own macros file called mymacros.tex
+%and uncomment the next line)
+%\include{mymacros}
+
+\title{Title of your thesis}                                           % the title of the thesis
+
+\author{Your name goes here}                                           % your name
+\college{Your College}                                                 % your college
+\supervisor{Your Supervisor}                                           % your supervisor
+
+\renewcommand{\submittedtext}{Submitted in partial completion of the}  % only needed for Msc Thesis
+\degree{Your Degree}                                                   % the degree
+\degreedate{Oxford term (Michealmas,Hilary,Trinity) and year}          % the degree date
