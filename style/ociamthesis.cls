@@ -1,6 +1,7 @@
-% ociamthesis v2.2
+% ociamthesis v3.0
 % By Keith A. Gillow <gillow@maths.ox.ac.uk>
 % Version 1.0 released 26/11/1997
+
 % Updated and adjusted for Pandoc  by A. Sadde <alberto.sadde@pmb.ox.ac.uk>
 % Released 03/07/2016
 %-------------------------- identification ---------------------
@@ -16,24 +17,18 @@
 
 \RequirePackage[T1]{fontenc} % prevents < in text mode turning into
 \RequirePackage{textcomp}    % ?', etc
-\RequirePackage{inconsolata} % nicer typewriter-style fonts
-\RequirePackage[scaled=.9]{helvet} % nice san serif fonts
 \RequirePackage{microtype} % micro-typographical extensions for pdf(e)(la)tex
 \RequirePackage[british]{babel} % British hyphenation patterns, etc.
 \RequirePackage{fixltx2e}
 \RequirePackage{ifthen}
-\RequirePackage[numbers,sort&compress,square,comma]{natbib} %bib
 \RequirePackage[utf8]{inputenc}
 
-%define the default submitted text
-% \newcommand{\submittedtext}{{A thesis submitted for the degree of}}
-\newcommand{\submittedtext}{Submitted in partial completion of the}  % only needed for Msc Thesis
-
-%
-% DECLARATIONS
-%
+% -- DECLARATIONS --------------------------------------------------------------
 % These macros are used to declare arguments needed for the
 % construction of the title page and other preamble.
+
+%define the default submitted text
+\newcommand{\submittedtext}{Submitted in partial completion of the}
 
 % The year and term the thesis is submitted
 \def\degreedate#1{\gdef\@degreedate{#1}}
@@ -44,10 +39,7 @@
 \def\supervisor#1{\gdef\@supervisor{#1}}
 \def\logofile#1{\gdef\@logofile{#1}}
 
-%
-% Setup choosen crest/logo
-%
-
+% -- Setup choosen crest/logo --------------------------------------------------
 \ifthenelse{\equal{\logoversion}{shieldcrest}}%
 {
 % Traditional Oxford shield crest
@@ -75,19 +67,15 @@
 \def\logo{{\includegraphics[width=32mm]{\@logofile}}}
 }{}
 
-%
-% Define text area of page and margin offsets
-%
+
+% - Define text area of page and margin offsets --------------------------------
 \setlength{\topmargin}{0.0in}
 \setlength{\oddsidemargin}{0.33in}
 \setlength{\evensidemargin}{-0.08in}
 \setlength{\textheight}{9.0in}
 \setlength{\textwidth}{6.0in}
 
-%
-% Environments
-%
-
+% - Environments ---------------------------------------------------------------
 % This macro define an environment for front matter that is always
 % single column even in a double-column document.
 
@@ -126,11 +114,9 @@
   \null\vfill
 \end{alwayssingle}}
 
-% DEDICATION
-%
+% - Dedication -----------------------------------------------------------------
 % The dedication environment makes sure the dedication gets its
 % own page and is set out in verse format.
-
 \newenvironment{dedication}
 {\begin{alwayssingle}
   \thispagestyle{empty}
@@ -143,13 +129,11 @@
 {\end{center}\end{verse}\end{alwayssingle}}
 
 
-% ACKNOWLEDGEMENTS
-%
+% - Acknowledgements -----------------------------------------------------------
 % The acknowledgements environment puts a large, bold, centered
 % "Acknowledgements" label at the top of the page. The acknowledgements
 % themselves appear in a quote environment, i.e. tabbed in at both sides, and
 % on its own page.
-
 \newenvironment{acknowledgements}
 {\begin{alwayssingle} \thispagestyle{empty}
 \begin{center}
@@ -173,13 +157,11 @@
 \vspace{0.5cm}}
 {\end{alwayssingle}}
 
-% STATEMENT OF ORIGINALITY (AS SUGGESTED BY GSW)
-%
+% - Originality ----------------------------------------------------------------
 % The originality environment puts a large, bold, centered
 % "Statement of originality" label at the top of the page. The statement
 % of originality itself appears in a quote environment, i.e. tabbed in at
 % both sides, and on its own page.
-
 \newenvironment{originality}
 {\begin{alwayssingle} \thispagestyle{empty}
 \begin{center}
@@ -205,12 +187,10 @@
 {\end{alwayssingle}}
 
 
-%ABSTRACT
-%
+% - Abstract -------------------------------------------------------------------
 %The abstract environment puts a large, bold, centered "Abstract" label at
 %the top of the page. The abstract itself appears in a quote environment,
 %i.e. tabbed in at both sides, and on its own page.
-
 \renewenvironment{abstract} {\begin{alwayssingle} \thispagestyle{empty}
   \begin{center}
   \vspace*{1.5cm}

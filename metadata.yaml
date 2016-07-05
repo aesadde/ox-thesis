@@ -39,4 +39,5 @@ figures: figures/beltcrest      # The Oxford Logo to use in the title
 header-includes: # Things you may want to include in the latex header
 include-before: #Options to insert before the TOC
 include-after: #Options to insert after the last page
+# md_extensions: -markdown+simple_tables+table_captions
 ---
