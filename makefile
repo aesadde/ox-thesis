@@ -42,7 +42,10 @@ define pandoc
 	-H "$(styledir)/preamble.tex" \
 	--csl="$(bib_style)" \
 	--bibliography="$(bibfile)" 2>"$(outputdir)"/pandoc.log \
+	--chapters \
 	-N \
+	--latex-engine=xelatex \
+	$(2)
 
 endef
 

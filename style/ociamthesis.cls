@@ -13,8 +13,6 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessOptions\relax
 \LoadClass{report}
-% As an alternative to the above could use next line for twosided output
-%\LoadClass[a4paper,twoside,openright]{report}
 
 \RequirePackage[T1]{fontenc} % prevents < in text mode turning into
 \RequirePackage{textcomp}    % ?', etc
@@ -42,6 +40,7 @@
 % The name of your Oxford college (e.g. Christ Church, Pembroke)
 \def\college#1{\gdef\@college{#1}}
 \def\supervisor#1{\gdef\@supervisor{#1}}
+\def\logofile#1{\gdef\@logofile{#1}}
 
 %
 % Setup choosen crest/logo
@@ -71,7 +70,7 @@
 {
 % Latest Logo, Square version (the default!)
 % you need an oxlogo.eps or oxlogo.pdf file as appropriate
-\def\logo{{\includegraphics[width=32mm]{figures/beltcrest}}}
+\def\logo{{\includegraphics[width=32mm]{\@logofile}}}
 }{}
 
 %

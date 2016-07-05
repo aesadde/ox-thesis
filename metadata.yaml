@@ -11,24 +11,24 @@ degree: Degree (e.g. MSc Computer Science)
 
 degreedate: Date (e.g. Trinity 2016)
 
-dedication: A la salud de todos ustedes
-
-acknowledgements: Thanks to everybody
-
 abstract: |
   This is the abstract
 
+## other front-matter options (uncomment as needed)
+# dedication:
+# acknowledgements:
+#originality:
+
 # Don't edit unless you want to change the  thesis' style
 thesis_class: style/ociamthesis
+figures: figures/beltcrest
 
 toc: yes
 
 # Other pandoc options -- don't change unless you know what you're doing
 link-citations: yes # generates a link for all references
 link-as-notes: yes  # renders url links are footnotes
-chapters: yes       # renders markdown #HEADERS as chapters
 
-## Rendering options
-latex-engine: xelatex
-verbose: no
+#Other options you might want to include in the latex's header
+header-includes:
 ---

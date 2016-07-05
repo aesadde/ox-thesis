@@ -15,6 +15,8 @@
 \degree{$degree$}          % the degree
 \degreedate{$degreedate$}  % the degree date
 
+\logofile{$figures$}
+
 %input macros (i.e. write your own macros file called mymacros.tex
 %and uncomment the next line)
 \include{$my_macros$}
@@ -278,11 +280,37 @@ $acknowledgements$
 \end{acknowledgements}
 $endif$
 
+$if(acknowledgementslong)$
+\begin{acknowledgementslong}
+$acknowledgementslong$
+\end{acknowledgementslong}
+$endif$
+
+$if(originality)$
+\begin{originality}
+$originality$
+\end{originality}
+$endif$
+
+$if(originalitylong)$
+\begin{originalitylong}
+$originalitylong$
+\end{originalitylong}
+$endif$
+
+
 $if(abstract)$
 \begin{abstract}
 $abstract$
 \end{abstract}
 $endif$
+
+$if(abstractlong)$
+\begin{abstractlong}
+$abstractlong$
+\end{abstractlong}
+$endif$
+
 
 $for(include-before)$
 $include-before$
@@ -303,8 +331,11 @@ $endif$
 $if(lof)$
 \listoffigures
 $endif$
+
+% - BODY -----------------------------------------------------------------------
 $body$
 
+% - Back matter  ---------------------------------------------------------------
 $if(natbib)$
 $if(bibliography)$
 $if(biblio-title)$
