@@ -19,18 +19,24 @@ abstract: |
 # acknowledgements:
 #originality:
 
-# Don't edit unless you want to change the  thesis' style
-thesis_class: style/ociamthesis
-figures: figures/beltcrest
-
-toc: yes
-
-# Other pandoc options -- don't change unless you know what you're doing
-link-citations: yes                                     # generates a link for all references
-link-as-notes: yes                                      # renders url links are footnotes
+# -----------------------------------------------------------------------------
+# -- Other Pandoc Options -----------------------------------------------------
+# -- don't change unless you know what you're doing ---------------------------
+# -----------------------------------------------------------------------------
+toc: yes                                                # Generate Table of Contents
+toc-depth: 3                                            # Depth of TOC
+link-citations: yes                                     # generates links for all references
+links-as-notes: yes                                     # renders url links are footnotes
 geometry: top=1.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm # Adjust margins
+highlight: tango                                        # Syntax highlighting for code blocks
 
+# -----------------------------------------------------------------------------
+# -- Latex options ------------------------------------------------------------
+# -----------------------------------------------------------------------------
+thesis_class: style/ociamthesis # The thesis style (Oxford default class)
+figures: figures/beltcrest      # The Oxford Logo to use in the title
 
-#Other options you might want to include in the latex's header
-header-includes:
+header-includes: # Things you may want to include in the latex header
+include-before: #Options to insert before the TOC
+include-after: #Options to insert after the last page
 ---
