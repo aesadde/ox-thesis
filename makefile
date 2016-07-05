@@ -39,7 +39,6 @@ define pandoc
 	"$(inputdir)"/*.md \
 	-o "$(outputdir)/$(1)" \
 	--template="$(styledir)/template.tex" \
-	-H "$(styledir)/preamble.tex" \
 	--csl="$(bib_style)" \
 	--bibliography="$(bibfile)" 2>"$(outputdir)"/pandoc.log \
 	--chapters \

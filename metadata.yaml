@@ -26,8 +26,10 @@ figures: figures/beltcrest
 toc: yes
 
 # Other pandoc options -- don't change unless you know what you're doing
-link-citations: yes # generates a link for all references
-link-as-notes: yes  # renders url links are footnotes
+link-citations: yes                                     # generates a link for all references
+link-as-notes: yes                                      # renders url links are footnotes
+geometry: top=1.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm # Adjust margins
+
 
 #Other options you might want to include in the latex's header
 header-includes:

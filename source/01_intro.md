@@ -16,4 +16,3 @@ main = putStrLn "Hello World"
 
 Citations should work in normal pandoc style. For example, check [@Sousa:2013cc]
 to for more information about the basis for my thesis.
-

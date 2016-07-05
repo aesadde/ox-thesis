@@ -26,7 +26,9 @@
 \RequirePackage[utf8]{inputenc}
 
 %define the default submitted text
-\newcommand{\submittedtext}{{A thesis submitted for the degree of}}
+% \newcommand{\submittedtext}{{A thesis submitted for the degree of}}
+\newcommand{\submittedtext}{Submitted in partial completion of the}  % only needed for Msc Thesis
+
 %
 % DECLARATIONS
 %
