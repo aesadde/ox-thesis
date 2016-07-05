@@ -8,6 +8,8 @@ outputdir=$(basedir)/output
 templatedir=$(inputdir)/templates
 styledir=$(basedir)/style
 
+meta=$(basedir)/metadata.yaml
+
 # CHANGE: The name of the generated files
 out_name = thesis
 
@@ -33,23 +35,14 @@ bib_style     = $(bib_ieee)
 # Don't change this unless you know what you're doing
 # Errors are reported in $(outputdir)/pandoc.log
 define pandoc
-	pandoc "$(basedir)"/metadata.yaml \
-		"$(inputdir)"/*.md \
+	pandoc $(meta) \
+	"$(inputdir)"/*.md \
 	-o "$(outputdir)/$(1)" \
 	--template="$(styledir)/template.tex" \
 	-H "$(styledir)/preamble.tex" \
 	--csl="$(bib_style)" \
-	--metadata link-as-notes \
 	--bibliography="$(bibfile)" 2>"$(outputdir)"/pandoc.log \
-	-V papersize=a4 \
-	-V links-as-notes=true \
-	-V documentclass:"$(styledir)/ociamthesis" \
-	--metadata link-citations \
-	-V fontsize=11pt \
-	--chapters \
 	-N \
-	--latex-engine=xelatex \
-	$(2)
 
 endef
 

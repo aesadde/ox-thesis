@@ -1,14 +1,34 @@
 ---
-title: On the Structure and Dynamics of Gravity Currents in Homogeneous and Two-Layer Fluids
+title: Title goes here
 
 author: Your name goes here
 
-college: Pembroke
+college: Your College name
 
-supervisor: El guebo
+supervisor: Supervisor's name
 
-degree: Heladero
+degree: Degree (e.g. MSc Computer Science)
 
-degreedate: 2000siempre
+degreedate: Date (e.g. Trinity 2016)
+
+dedication: A la salud de todos ustedes
+
+acknowledgements: Thanks to everybody
+
+abstract: |
+  This is the abstract
+
+# Don't edit unless you want to change the  thesis' style
+thesis_class: style/ociamthesis
+
+toc: yes
+
+# Other pandoc options -- don't change unless you know what you're doing
+link-citations: yes # generates a link for all references
+link-as-notes: yes  # renders url links are footnotes
+chapters: yes       # renders markdown #HEADERS as chapters
+
+## Rendering options
+latex-engine: xelatex
+verbose: no
 ---
-

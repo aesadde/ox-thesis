@@ -1,4 +1,25 @@
-\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+\documentclass[a4paper, 11pt, twoside]{$thesis_class$}
+
+% - Customization --------------------------------------------------------------
+% - These settings are changed in metadata.yaml
+% - You should not touch anything here
+
+\title{$title$}            % the title of the thesis
+
+\author{$author$}          % your name
+
+\college{$college$}        % your college
+
+\supervisor{$supervisor$}  % your supervisor
+
+\degree{$degree$}          % the degree
+\degreedate{$degreedate$}  % the degree date
+
+%input macros (i.e. write your own macros file called mymacros.tex
+%and uncomment the next line)
+\include{$my_macros$}
+
+% - Font Stuff starts  ---------------------------------------------------------
 $if(fontfamily)$
 \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
 $else$
@@ -54,10 +75,15 @@ $endif$
 \usepackage{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
+% - Fonts stuff end ------------------------------------------------------------
+
+% - Geometry  ------------------------------------------------------------------
 $if(geometry)$
 \usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
+% ------------------------------------------------------------------------------
 
+% - Links ----------------------------------------------------------------------
 $if(colorlinks)$
 \PassOptionsToPackage{usenames,dvipsnames}{xcolor} % color is loaded by hyperref
 $endif$
@@ -67,7 +93,6 @@ $endif$
 xetex]{hyperref}
 \else
   \usepackage[unicode=true]{hyperref}
-
 \fi
 % Make sure url breaks
 \usepackage{url}
@@ -85,6 +110,8 @@ xetex]{hyperref}
             pdfborder={0 0 0}}
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage[all]{hypcap}% improve link placement in floats
+
+% - Language -------------------------------------------------------------------
 $if(lang)$
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$babel-lang$]{babel}
@@ -99,6 +126,8 @@ $for(polyglossia-otherlangs)$
 $endfor$
 \fi
 $endif$
+
+% - Bibliography  --------------------------------------------------------------
 $if(natbib)$
 \usepackage{natbib}
 \bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
@@ -109,6 +138,8 @@ $for(bibliography)$
 \addbibresource{$bibliography$}
 $endfor$
 $endif$
+
+% - Listings -------------------------------------------------------------------
 $if(listings)$
 \usepackage{listings}
 \makeatletter
@@ -145,6 +176,7 @@ $if(listings)$
 }
 $endif$
 
+% - Other  ---------------------------------------------------------------------
 $if(lhs)$
 \lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
 $endif$
@@ -228,22 +260,24 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
-
-\title{$title$}                         % the title of the thesis
-
-\author{$author$}                       % your name
-
-\college{$college$}                     % your college
-
-\supervisor{$supervisor$}               % your supervisor
-
-\degree{$degree$}                       % the degree
-\degreedate{$degreedate$}               % the degree date
-
 \begin{document}
+
 $if(title)$
 \maketitle
 $endif$
+
+$if(dedication)$
+\begin{dedication}
+$dedication$
+\end{dedication}
+$endif$
+
+$if(acknowledgements)$
+\begin{acknowledgements}
+$acknowledgements$
+\end{acknowledgements}
+$endif$
+
 $if(abstract)$
 \begin{abstract}
 $abstract$
