@@ -1,4 +1,3 @@
-\maketitle
 <!--
 \begin{dedication}
 This thesis is dedicated to\\
@@ -9,7 +8,7 @@ for some special reason\\
 
 \begin{acknowledgements}
 
-Thanks to someone
+$acknowledgements$
 
 \end{acknowledgements}
 
@@ -43,4 +42,3 @@ The abstact goes here
 -->
 
 \flushbottom
-\newpage

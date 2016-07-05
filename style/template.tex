@@ -228,20 +228,17 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
-$if(title)$
-\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
-$endif$
-$if(subtitle)$
-\providecommand{\subtitle}[1]{}
-\subtitle{$subtitle$}
-$endif$
-$if(author)$
-\author{$for(author)$$author$$sep$ \and $endfor$}
-$endif$
-$if(institute)$
-\institute{$for(institute)$$institute$$sep$ \and $endfor$}
-$endif$
-\date{$date$}
+
+\title{$title$}                         % the title of the thesis
+
+\author{$author$}                       % your name
+
+\college{$college$}                     % your college
+
+\supervisor{$supervisor$}               % your supervisor
+
+\degree{$degree$}                       % the degree
+\degreedate{$degreedate$}               % the degree date
 
 \begin{document}
 $if(title)$
