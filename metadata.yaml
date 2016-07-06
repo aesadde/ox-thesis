@@ -49,8 +49,8 @@ linkcolor:                                                    # color of links. 
 # -----------------------------------------------------------------------------
 # -- Latex options ------------------------------------------------------------
 # -----------------------------------------------------------------------------
-thesis_class: style/ociamthesis # The thesis style (Oxford default class)
-figures:      figures/beltcrest # The Oxford Logo to use in the title
+thesis_class: style/ociamthesis      # The thesis style (Oxford default class)
+figures:      figures/blueSquare # The Oxford Logo to use in the title
 fontfamily:   helvet
 
 header-includes: # Things you may want to include in the latex header

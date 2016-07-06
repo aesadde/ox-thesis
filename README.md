@@ -9,11 +9,11 @@ pandoc-markdown.
 
 ## Usage
 
-- Clone the repo
+- Clone the repo.
 
-- Change the relevant bits of `metadata.yaml`
+- Change the relevant bits of `metadata.yaml`.
 
-- Add your content in markdown inside the `source` dir
+- Add your content in markdown inside the `source` dir.
 
 - Run:
 
@@ -28,7 +28,7 @@ pandoc-markdown.
 ## Customisation
 
 There is plenty of things you can customise. Most common options are in the yaml
-metadata but other things require more tweaking.
+meta data but other things require more tweaking.
 
 
 ### Referencing
@@ -36,3 +36,10 @@ metadata but other things require more tweaking.
 I've provided three common referencing styles used in Computer Science, if you
 need a different one simply add the relevant file to the `style/citation_styles`
 directory and change the relevant `bib_style` variable in the `makefile`.
+
+## University Logos
+
+These are provided as is. For usage outside these templates please refer to the
+[University's branding site](https://www.ox.ac.uk/public-affairs/branding).
+
+
