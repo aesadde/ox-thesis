@@ -3,7 +3,7 @@
 This repository contains templates to render a thesis with the format required
 by Oxford University.
 
-This is an adaptation of the `ociamthesis` class that I use in conjunction with
+This is an adaptation of the [ociamthesis](https://www.maths.ox.ac.uk/members/it/faqs/latex/thesis-class) class that I use in conjunction with
 pandoc-markdown.
 
 
