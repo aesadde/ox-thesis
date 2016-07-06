@@ -32,8 +32,6 @@
 
 \usepackage[titletoc]{appendix}
 \usepackage{pdfpages} % incluce pdf files
-\usepackage{inconsolata} % nicer typewriter-style fonts
-\usepackage[scaled=.9]{helvet} % nice san serif fonts
 
 % better names when cross-referencing with cleveref
 \usepackage[nameinlink]{cleveref}
@@ -58,6 +56,7 @@
 \Crefname{subsubfigure}{Figure}{Figures}
 \crefname{appendix}{Appendix}{Appendices}
 \Crefname{appendix}{Appendix}{Appendices}
+
 
 % - Font Stuff starts   ---------------------------------------------------------
 \usepackage{xltxtra}
@@ -157,15 +156,19 @@ $if(listings)$
 % Deal with 'LaTeX Error: Too many unprocessed floats.'
 \usepackage{morefloats}
 
+$if(counter)$
 \makeatletter
 \AtBeginDocument{%
   \let\c@figure\c@lstlisting
-  % \let\c@table\c@lstlisting
-  % \let\thetable\thelstlisting
+  \let\c@table\c@lstlisting
+  \let\thetable\thelstlisting
   \let\thefigure\thelstlisting
   \let\ftype@lstlisting\ftype@figure % give the floats the same precedence
-  % \let\ftype@lstlisting\ftype@table% give the floats the same precedence
+  \let\ftype@lstlisting\ftype@table% give the floats the same precedence
+}
+$endif$
 
+\makeatother
 \renewcommand*{\lstlistingname}{Figure}
 \lstset{%
   frame=none,
@@ -368,11 +371,11 @@ $body$
 % - Back matter ----------------------------------------------------------------
 $if(natbib)$
 $if(bibliography)$
-$if(biblio-title)$
+$if(bibtitle)$
 $if(book-class)$
-\renewcommand\bibname{$biblio-title$}
+\renewcommand\bibname{$bibtitle$}
 $else$
-\renewcommand\refname{$biblio-title$}
+\renewcommand\refname{$bibtitle$}
 $endif$
 $endif$
 \bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
@@ -380,7 +383,7 @@ $endif$
 $endif$
 
 $if(biblatex)$
-\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+\printbibliography$if(bibtitle)$[title=$bibtitle$]$endif$
 $endif$
 
 $for(include-after)$

@@ -39,16 +39,15 @@ define pandoc
 	"$(inputdir)"/*.md \
 	-o "$(outputdir)/$(1)" \
 	--template="$(styledir)/template.tex" \
+	--bibliography="$(bibfile)"  \
 	--csl="$(bib_style)" \
-	--bibliography="$(bibfile)" 2>"$(outputdir)"/pandoc.log \
 	--chapters \
 	-N \
 	--latex-engine=xelatex \
-	$(2)
-
+	$(2) 2>"$(outputdir)"/pandoc.log
 endef
 
-all: pdf tex docx
+all: pdf tex docx html
 
 pdf:
 	@echo "Building $(out_name).pdf..."
@@ -60,9 +59,10 @@ tex:
 
 docx:
 	@echo "Building $(out_name).docx..."
-	@$(call pandoc,"$(out_name).docx","--toc")
+	@$(call pandoc,"$(out_name).docx")
 
 html:
+	@echo "Building $(out_name).html..."
 	pandoc "$(inputdir)"/*.md \
 	-o "$(outputdir)/$(out_name).html" \
 	--standalone \

@@ -1,43 +1,59 @@
 ---
-title: Title goes here
+title:      Title goes here
 
-author: Your name goes here
+author:     Your name goes here
 
-college: Your College name
+college:    Your College name
 
 supervisor: Supervisor's name
 
-degree: Degree (e.g. MSc Computer Science)
+degree:     Degree (e.g. MSc Computer Science)
 
 degreedate: Date (e.g. Trinity 2016)
 
+# -----------------------------------------------------------------------------
+# -- Front matter -------------------------------------------------------------
+# You can either include a file e.g. \input{source/abstract} where abstract is a
+# .tex file or you can simply write the text directly here.
+# -----------------------------------------------------------------------------
 abstract: |
-  This is the abstract
+  This is the abstract.
+  For this and the other front-matter options you can either include the text directly on the metadata file or
+  you can use `\input{path_to_tex_file}` in order to include your text.
 
-## other front-matter options (uncomment as needed)
-# dedication:
-# acknowledgements:
-#originality:
+dedication: |
+  This is a dedication
+
+acknowledgements: |
+  Say thanks to whoever listened to your rants for 2 months
+
+originality: |
+  This is the statement of originality
 
 # -----------------------------------------------------------------------------
 # -- Other Pandoc Options -----------------------------------------------------
 # -- don't change unless you know what you're doing ---------------------------
 # -----------------------------------------------------------------------------
-toc: yes                                                # Generate Table of Contents
-toc-depth: 3                                            # Depth of TOC
-link-citations: yes                                     # generates links for all references
-links-as-notes: yes                                     # renders url links are footnotes
-geometry: top=1.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm # Adjust margins
-highlight: tango                                        # Syntax highlighting for code blocks
+toc:            yes                                           # Generate Table of Contents
+toc-depth:      2                                             # Depth of TOC
+link-citations: yes                                           # generates links for all references
+links-as-notes: yes                                           # renders url links are footnotes
+geometry:       top=1.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm # Adjust margins
+highlight:      tango                                         # Syntax highlighting for code blocks
+listings:       yes                                           # use listings package (code blocks with tex instead of pandoc)
+counter:        yes                                           # Use same counter for all figures/tables/listings (y/n)
+citecolor:                                                    # color of citations. Default is blue
+urlcolor:                                                     # color of urls. Default is blue
+linkcolor:                                                    # color of links. Default is magenta
 
 # -----------------------------------------------------------------------------
 # -- Latex options ------------------------------------------------------------
 # -----------------------------------------------------------------------------
 thesis_class: style/ociamthesis # The thesis style (Oxford default class)
-figures: figures/beltcrest      # The Oxford Logo to use in the title
+figures:      figures/beltcrest # The Oxford Logo to use in the title
+fontfamily:   helvet
 
 header-includes: # Things you may want to include in the latex header
-include-before: #Options to insert before the TOC
-include-after: #Options to insert after the last page
-# md_extensions: -markdown+simple_tables+table_captions
+include-before:  # Options to insert before the TOC
+include-after:   # Options to insert after the last page
 ---

@@ -8,20 +8,14 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{ociamthesis}[2010/11/22 v2.2 OCIAM thesis class]
 %-------------------------- initial code -----------------------
-\def\logoversion{squarelogo}
-\DeclareOption{beltcrest}{\def\logoversion{beltcrest}}
-\DeclareOption{shieldcrest}{\def\logoversion{shieldcrest}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessOptions\relax
 \LoadClass{report}
 
-\RequirePackage[T1]{fontenc} % prevents < in text mode turning into
 \RequirePackage{textcomp}    % ?', etc
 \RequirePackage{microtype} % micro-typographical extensions for pdf(e)(la)tex
-\RequirePackage[british]{babel} % British hyphenation patterns, etc.
 \RequirePackage{fixltx2e}
 \RequirePackage{ifthen}
-\RequirePackage[utf8]{inputenc}
 
 % -- DECLARATIONS --------------------------------------------------------------
 % These macros are used to declare arguments needed for the
@@ -40,33 +34,7 @@
 \def\logofile#1{\gdef\@logofile{#1}}
 
 % -- Setup choosen crest/logo --------------------------------------------------
-\ifthenelse{\equal{\logoversion}{shieldcrest}}%
-{
-% Traditional Oxford shield crest
-%Using latex metafont (Mathematical Institute system)
-\font\crestfont=oxcrest40 scaled\magstep3
-\def\logo{{\crestfont \char1}}
-%For comlab system replace 1st line above with
-%\font\crestfont=crest scaled\magstep3
-}{}
-
-\ifthenelse{\equal{\logoversion}{beltcrest}}%
-{
-% Newer Oxford Belt crest
-%Using latex metafont (Mathematical Institute system)
-\font\beltcrestfont=oxbeltcrest
-\def\logo{{\beltcrestfont \char0}}
-%For comlab system replace 1st line above with
-%\font\beltcrestfont=newcrest
-}{}
-
-\ifthenelse{\equal{\logoversion}{squarelogo}}%
-{
-% Latest Logo, Square version (the default!)
-% you need an oxlogo.eps or oxlogo.pdf file as appropriate
 \def\logo{{\includegraphics[width=32mm]{\@logofile}}}
-}{}
-
 
 % - Define text area of page and margin offsets --------------------------------
 \setlength{\topmargin}{0.0in}

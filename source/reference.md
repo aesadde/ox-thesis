@@ -1,5 +1,0 @@
-
-
-\footnotesize
-
-# Bibliography {.unnumbered}

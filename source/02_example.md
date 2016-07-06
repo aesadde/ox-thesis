@@ -9,15 +9,18 @@ f (x) = x \times x
 $$
 
 
-This is a table:
+This is \autoref{table:example}:
 
+  Right     Left     Center     Default
+-------     ------ ----------   -------
+     12     12        12            12
+    123     123       123          123
+      1     1          1             1
 
-$i$  $x_i$                 $e_i$             $\beta(e_i)$    $\beta(x_{i-1},e_i)$ $\beta(x_0,x_i)$
----  --------------------- ---------------   ------------    -------------------- ----------------
-0    All Greeks are men
-1    All Greeks are mortal SUB(men,mortal)   $\sqsubset$        $\sqsubset$             $\sqsubset$
+Table:  Demonstration of simple table syntax.
+\label{table:example}
 
-This is \Cref{fig:example}:
+This is \autoref{fig:example}:
 
 \begin{figure}[htp]
   \centering
