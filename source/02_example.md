@@ -28,3 +28,19 @@ This is \autoref{fig:example}:
   \caption{Example}
   \label{fig:example}
 \end{figure}
+
+## Even Tikz figures and other things
+
+\begin{tikzpicture}[sibling distance=10em,
+  every node/.style = {shape=rectangle, rounded corners,
+    draw, align=center,
+    top color=white, bottom color=blue!20}]]
+  \node {Formulas}
+    child { node {single-line} }
+    child { node {multi-line}
+      child { node {aligned at}
+        child { node {relation sign} }
+        child { node {several places} }
+        child { node {center} } }
+      child { node {first left,\\centered,\\last right} } };
+\end{tikzpicture}

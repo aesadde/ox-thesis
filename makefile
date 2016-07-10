@@ -59,7 +59,11 @@ tex:
 
 docx:
 	@echo "Building $(out_name).docx..."
-	@$(call pandoc,"$(out_name).docx")
+	pandoc "$(inputdir)"/*.md \
+	-o "$(outputdir)/thesis.docx" \
+	--bibliography="$(bibfile)" \
+	--csl="$(bib_style)" \
+	--toc
 
 html:
 	@echo "Building $(out_name).html..."
@@ -92,3 +96,7 @@ help:
 	@echo 'or generic ones from: https://github.com/jgm/pandoc-templates		  '
 
 .PHONY: help pdf docx html tex
+
+clean:
+	rm -rf output/*
+
