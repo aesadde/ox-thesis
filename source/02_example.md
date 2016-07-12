@@ -1,6 +1,7 @@
-# Example
+# Example #
 
 
+This is a cross-referene to \Cref{example}.
 You can write math:
 
 
