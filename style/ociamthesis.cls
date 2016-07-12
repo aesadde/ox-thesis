@@ -198,3 +198,10 @@
     {\@degreedate}}
   \end{center}}
 {\end{alwayssingle}}
+
+% - Roman Pages ----------------------------------------------------------------
+% Sets up an enviroment for counting pages with roman literals.
+% Used for toc, lot, lof
+\newenvironment{romanpages}
+{\cleardoublepage\setcounter{page}{1}\renewcommand{\thepage}{\roman{page}}}
+{\cleardoublepage\renewcommand{\thepage}{\arabic{page}}\setcounter{page}{1}}

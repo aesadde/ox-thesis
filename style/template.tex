@@ -348,8 +348,9 @@ $include-before$
 $endfor$
 
 % - Table of Contents  ---------------------------------------------------------
+\begin{romanpages}
 $if(toc)$
-{
+{%
 $if(colorlinks)$
 \hypersetup{linkcolor=black}
 $endif$
@@ -364,6 +365,7 @@ $endif$
 $if(lof)$
 \listoffigures
 $endif$
+\end{romanpages}
 
 % - BODY -----------------------------------------------------------------------
 $body$
