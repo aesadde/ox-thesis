@@ -3,6 +3,7 @@
 ## ---------------------------------------------------------------------------
 basedir=$(PWD)
 
+sources := $(wildcard */*.md)
 inputdir=$(basedir)/source
 outputdir=$(basedir)/output
 templatedir=$(inputdir)/templates
@@ -11,7 +12,10 @@ styledir=$(basedir)/style
 meta=$(basedir)/metadata.yaml
 
 # CHANGE: The name of the generated files
-out_name = thesis
+out_name := thesis
+
+# get everything but the pdf output on cleaning
+remove := $(filter-out $(wildcard $(outputdir)/*.pdf),$(wildcard $(outputdir)/*))
 
 #  -- Bib Vars --------------------------------------------------------------
 # the dir where all the citation styles are
@@ -36,22 +40,24 @@ bib_style     = $(bib_ieee)
 # Errors are reported in $(outputdir)/pandoc.log
 define pandoc
 	pandoc $(meta) \
-	"$(inputdir)"/*.md \
+	$(sources) \
 	-o "$(outputdir)/$(1)" \
 	--template="$(styledir)/template.tex" \
 	--bibliography="$(bibfile)"  \
+	--filter pandoc-minted.py \
 	--csl="$(bib_style)" \
 	--chapters \
 	-N \
-	--latex-engine=xelatex \
 	$(2) 2>"$(outputdir)"/pandoc.log
 endef
 
-all: pdf tex docx html
+all: pdf
 
 pdf:
 	@echo "Building $(out_name).pdf..."
-	@$(call pandoc,"$(out_name).pdf")
+	@$(call pandoc,"$(out_name).tex")
+	latexmk -f -silent -xelatex -shell-escape -outdir=$(outputdir) $(out_name).tex
+
 
 tex:
 	@echo "Building $(out_name).tex..."
@@ -98,5 +104,5 @@ help:
 .PHONY: help pdf docx html tex
 
 clean:
-	rm -rf output/*
+	rm -r $(remove)
 

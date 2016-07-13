@@ -15,16 +15,18 @@ Pandoc fenced-code blocks are cool but it is hard to add captions to it.
 So if you don't need a caption go and use it, otherwise stick to normal latex
 listings (\cref{sec:listings}).
 
-```{.haskell}
+```haskell
 main :: IO ()
 main = putStrLn "Hello World"
 ```
 
 ### This is a listing rendered with latex \label{sec:listings}
 
-This is \autoref{lst:haskell_tex}
+Listing \cref{lst:example} contains an example of a listing.
 
-\begin{lstlisting}[language=Haskell,caption={The higher-order functions `map` and `filter`},label=lst:haskell_tex,mathescape=true]
+\begin{figure}[htp]
+\centering
+\begin{minted}{haskell}
 map :: (a -> b) -> [a] -> [b]
 map f []           = []
 map f (x:xs)       = f x : map f xs
@@ -34,7 +36,22 @@ filter pred []     = []
 filter pred (x:xs)
   | pred x         = x : filter pred xs
   | otherwise      = filter pred xs
-\end{lstlisting}
+\end{minted}
+\caption{Example of a listing.}
+\label{lst:example}
+\end{figure}
+
+\begin{minted}{haskell}
+map :: (a -> b) -> [a] -> [b]
+map f []           = []
+map f (x:xs)       = f x : map f xs
+
+filter :: (a -> Bool) -> [a] -> [a]
+filter pred []     = []
+filter pred (x:xs)
+  | pred x         = x : filter pred xs
+  | otherwise      = filter pred xs
+\end{minted}
 
 #### These are some citations
 Citations should work in normal pandoc style. For example, check [@Sousa:2013cc]

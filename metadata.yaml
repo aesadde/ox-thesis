@@ -39,12 +39,18 @@ toc-depth:      2                                             # Depth of TOC
 link-citations: yes                                           # generates links for all references
 links-as-notes: yes                                           # renders url links are footnotes
 geometry:       top=1.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm # Adjust margins
-highlight:      tango                                         # Syntax highlighting for code blocks
-listings:       yes                                           # use listings package (code blocks with tex instead of pandoc)
+
 counter:        yes                                           # Use same counter for all figures/tables/listings (y/n)
 citecolor:                                                    # color of citations. Default is blue
 urlcolor:                                                     # color of urls. Default is blue
 linkcolor:                                                    # color of links. Default is magenta
+
+# Code block generation
+# Use either listings or minted package
+listings:                                                     # use listings package (code blocks with tex instead of pandoc)
+minted:         yes
+outdir:         output
+minted_style:   tango                                         # Syntax highlighting for code blocks
 
 # -----------------------------------------------------------------------------
 # -- Latex options ------------------------------------------------------------

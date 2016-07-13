@@ -153,6 +153,11 @@ $endfor$
 $endif$
 
 % - Listings -------------------------------------------------------------------
+$if(minted)$
+\usepackage[outputdir=$outdir$]{minted}
+\usemintedstyle{$minted_style$}
+$endif$
+
 $if(listings)$
 \usepackage{listings}
 % Deal with 'LaTeX Error: Too many unprocessed floats.'
