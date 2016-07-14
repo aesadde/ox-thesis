@@ -3,7 +3,8 @@
 ## ---------------------------------------------------------------------------
 basedir=$(PWD)
 
-sources := $(wildcard */*.md)
+sources := $(filter-out $(wildcard extras/*.md), $(wildcard */*.md))
+
 inputdir=$(basedir)/source
 outputdir=$(basedir)/output
 templatedir=$(inputdir)/templates
@@ -44,7 +45,7 @@ define pandoc
 	-o "$(outputdir)/$(1)" \
 	--template="$(styledir)/template.tex" \
 	--bibliography="$(bibfile)"  \
-	--filter pandoc-minted.py \
+	--filter $(styledir)/pandoc-minted.py \
 	--csl="$(bib_style)" \
 	--chapters \
 	-N \
@@ -53,10 +54,25 @@ endef
 
 all: pdf
 
+single:
+	@echo "Building $(chapter_name) only"
+	pandoc $(meta) \
+	$(chapter_name) \
+	-o "$(outputdir)/single.tex" \
+	--template="$(styledir)/standalone.tex" \
+	--filter $(styledir)/pandoc-minted.py \
+	--bibliography="$(bibfile)"  \
+	--csl="$(bib_style)" \
+	-N
+	latexmk -f -silent -xelatex -shell-escape -outdir=$(outputdir) single.tex \
+	&> $(outputdir)/latex.log
+
 pdf:
 	@echo "Building $(out_name).pdf..."
 	@$(call pandoc,"$(out_name).tex")
-	latexmk -f -silent -xelatex -shell-escape -outdir=$(outputdir) $(out_name).tex
+	latexmk -f -silent -xelatex -shell-escape -outdir=$(outputdir) $(out_name).tex \
+	&> $(outputdir)/latex.log
+
 
 
 tex:
