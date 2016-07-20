@@ -1,7 +1,12 @@
-\documentclass[a4paper, 11pt, twoside]{report}
+\documentclass[11pt,a4paper,twoside,abstracton,numbers=noenddot,BCOR13mm,DIV=12]{scrreprt}
 % - Customization --------------------------------------------------------------
 % - These settings are changed in metadata.yaml
 % - You should not touch anything here
+\usepackage{inconsolata} % nicer typewriter-style fonts
+\usepackage[scaled=.9]{helvet} % nice san serif fonts
+\usepackage{microtype} % micro-typographical extensions for pdf(e)(la)tex
+\usepackage[british]{babel} % British hyphenation patterns, etc.
+\typearea[current]{12} % force page layout recalculation after
 
 \title{$title$}            % the title of the thesis
 
@@ -49,12 +54,6 @@ $if(geometry)$
 \usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
 
-% - Layout ---------------------------------------------------------------------
-\usepackage{fancyhdr}
-\usepackage{sectsty}
-\usepackage{titlesec}
-\titleformat{\chapter}{\bfseries\huge}{\thechapter.}{20pt}{\huge}
-
 % - Links ----------------------------------------------------------------------
 $if(colorlinks)$
 \PassOptionsToPackage{usenames,dvipsnames}{xcolor} % color is loaded by hyperref
@@ -68,6 +67,9 @@ xetex]{hyperref}
 \fi
 % Make sure url breaks
 \usepackage{url}
+\usepackage[all]{hypcap}% improve link placement in floats
+\hypersetup{pdfstartview={Fit}}
+\urlstyle{sf}
 \makeatletter
 \g@addto@macro{\UrlBreaks}{\UrlOrds}
 \makeatother
@@ -281,11 +283,6 @@ $header-includes$
 $endfor$
 
 \begin{document}
-
-% - Title ----------------------------------------------------------------------
-$if(title)$
-\maketitle
-$endif$
 
 % - BODY -----------------------------------------------------------------------
 $body$

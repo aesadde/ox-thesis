@@ -8,14 +8,20 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{ociamthesis}[2010/11/22 v2.2 OCIAM thesis class]
 %-------------------------- initial code -----------------------
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
-\ProcessOptions\relax
-\LoadClass{report}
-
+\PassOptionsToPackage{twoside}{typearea}
+\LoadClass[abstracton,numbers=noenddot,BCOR13mm,DIV=12]{scrreprt}
+\RequirePackage[T1]{fontenc} % prevents < in text mode turning into
 \RequirePackage{textcomp}    % ?', etc
+\RequirePackage{inconsolata} % nicer typewriter-style fonts
+\RequirePackage[scaled=.9]{helvet} % nice san serif fonts
 \RequirePackage{microtype} % micro-typographical extensions for pdf(e)(la)tex
-\RequirePackage{fixltx2e}
+\RequirePackage[british]{babel} % British hyphenation patterns, etc.
 \RequirePackage{ifthen}
+
+%%% OPTIONS %%%
+\typearea[current]{12} % force page layout recalculation after
+
+\raggedbottom
 
 % -- DECLARATIONS --------------------------------------------------------------
 % These macros are used to declare arguments needed for the
@@ -85,7 +91,7 @@
 % - Dedication -----------------------------------------------------------------
 % The dedication environment makes sure the dedication gets its
 % own page and is set out in verse format.
-\newenvironment{dedication}
+\renewenvironment{dedication}
 {\begin{alwayssingle}
   \thispagestyle{empty}
   \begin{center}

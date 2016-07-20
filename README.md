@@ -13,22 +13,28 @@ pandoc-markdown.
 
 - Change the relevant bits of `metadata.yaml`.
 
+* Make sure you have installed
+  [latexmk](https://sourceforge.net/projects/latex-mk/) and the [minted
+  package](http://www.ctan.org/pkg/minted) and a recent `TeX` distribution which
+  includes `xelatex`.
+
 - Add your content in markdown inside the `source` dir.
 
 - Run:
 
+  * `make` to render as pdf
+  * `make chapter_name=source/your_chapter.md single` to render a single chapter as pdf.
   * `make tex` if you want a `.tex` file
   * `make pdf` to render the thesis to a `.pdf`
   * `make docx` to render the thesis as a word-document.
   * `make html` to render the thesis as a webpage.
-  * `make all` to render all the above at once
 
 - Rendered files will be in the `output` dir.
 
 ## Customisation
 
 There is plenty of things you can customise. Most common options are in the yaml
-meta data but other things require more tweaking.
+metadata.
 
 
 ### Referencing

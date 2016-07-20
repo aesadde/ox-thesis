@@ -1,4 +1,4 @@
-\documentclass[a4paper, 11pt, twoside]{$thesis_class$}
+\documentclass[a4paper, 11pt, oneside]{$thesis_class$}
 % - Customization --------------------------------------------------------------
 % - These settings are changed in metadata.yaml
 % - You should not touch anything here
@@ -51,7 +51,6 @@ $if(linestretch)$
 $endif$
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
 
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -67,10 +66,6 @@ $if(geometry)$
 $endif$
 
 % - Layout ---------------------------------------------------------------------
-\usepackage{fancyhdr}
-\usepackage{sectsty}
-\usepackage{titlesec}
-\titleformat{\chapter}{\bfseries\huge}{\thechapter.}{20pt}{\huge}
 
 % - Links ----------------------------------------------------------------------
 $if(colorlinks)$
@@ -85,6 +80,9 @@ xetex]{hyperref}
 \fi
 % Make sure url breaks
 \usepackage{url}
+\usepackage[all]{hypcap}% improve link placement in floats
+\hypersetup{pdfstartview={Fit}}
+\urlstyle{sf}
 \makeatletter
 \g@addto@macro{\UrlBreaks}{\UrlOrds}
 \makeatother
@@ -97,7 +95,6 @@ xetex]{hyperref}
             urlcolor=$if(urlcolor)$$urlcolor$$else$blue$endif$,
             linkcolor=$if(linkcolor)$$linkcolor$$else$magenta$endif$,
             pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
 \usepackage[all]{hypcap}% improve link placement in floats
 
 % better names when cross-referencing with cleveref
